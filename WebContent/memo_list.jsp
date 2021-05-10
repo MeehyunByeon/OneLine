@@ -6,7 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>memo_list</title>
+<link rel="stylesheet" href="memo.css">
 </head>
 <body>
 <%
@@ -34,7 +35,9 @@
 	con.close();
 	out.println("DB조회 성공");
 %>
-
+<form method="post" action="memo_form.html">
+<input id="mainSubmit" type="submit" value="작성"></input>
+</form>
 
 </body>
 </html>
