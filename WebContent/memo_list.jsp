@@ -29,8 +29,10 @@
 		String wdate = rs.getString(3);
 		
 		out.println(no + " : " + memo + " : [" + wdate + "]");
-		%><input class="submit" type="submit" value=" X "></input> </p>
+		%><form method="post" action="memo_delete.jsp">
+		<input class="submit" type="submit" value=" X " name="memo"></input> </p>
 		</br>
+		</form>
 		<%
 	}
 	rs.close();
