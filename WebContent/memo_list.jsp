@@ -28,7 +28,10 @@
 		String memo = rs.getString("memo");
 		String wdate = rs.getString(3);
 		
-		out.println(no + " : " + memo + " : [" + wdate + "]</br>");
+		out.println(no + " : " + memo + " : [" + wdate + "]");
+		%><input class="submit" type="submit" value=" X "></input> </p>
+		</br>
+		<%
 	}
 	rs.close();
 	pstmt.close();
