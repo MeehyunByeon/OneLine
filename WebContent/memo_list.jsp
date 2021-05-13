@@ -6,10 +6,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>memo_list</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>memo</title>
 <link rel="stylesheet" href="memo.css">
 </head>
-<body>
+
 <%
 	String url = "jdbc:mysql://localhost/world?characterEncoding=UTF-8&serverTimezone=UTC";
 	String user = "root";
@@ -23,26 +24,33 @@
 
 	pstmt = con.prepareStatement(sql);
 	ResultSet rs = pstmt.executeQuery();
+%>
+
+<body>
+	<div id=container>
+	<h1 class="memo">OneLine Memo</h1><hr>
+	
+	<form method="post" action="memo_write.jsp">
+	<input id="mainText" type="text" name="memo" autofocus placeholder="메모를 입력하세요">
+	<input id="mainSubmit" type="submit" value="등록"></input>
+	</form>
+	
+    <%
 	while(rs.next()) {
 		int no = rs.getInt(1);
 		String memo = rs.getString("memo");
 		String wdate = rs.getString(3);
 		
-		out.println(no + " : " + memo + " : [" + wdate + "]");
-		%><form method="post" action="memo_delete.jsp">
-		<input class="submit" type="submit" value=" X " name="memo"></input> </p>
-		</br>
-		</form>
-		<%
-	}
+		out.println("<p>["+ wdate + "]" + memo +"<input class=\"button\" type=\"button\" value=\"X\" onClick=\"location.href='memo_delete.jsp?no="+no+"'\"><br>");
+		
+	}	
+    %>
+	<hr>  
+	</div>
+</body>
+</html>
+<%
 	rs.close();
 	pstmt.close();
 	con.close();
-	out.println("DB조회 성공");
 %>
-<form method="post" action="memo_form.html">
-<input id="mainSubmit" type="submit" value="작성"></input>
-</form>
-
-</body>
-</html>

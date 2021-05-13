@@ -11,23 +11,23 @@
 <body>
 <%
 	request.setCharacterEncoding("UTF-8");
-	String memo = request.getParameter("memo");
+	String no = request.getParameter("no");
 
 	String url = "jdbc:mysql://localhost/world?characterEncoding=UTF-8&serverTimezone=UTC";
 	String user = "root";
 	String passwd = "bmh@392766";
 	Connection con = null;
-	String sql = "delete from oneline where memo = ? ";
+	String sql = "delete from oneline where no = (" + no +")";
 	PreparedStatement pstmt = null;
 
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	con = DriverManager.getConnection(url, user, passwd);
 
 	pstmt = con.prepareStatement(sql);
-	pstmt.setString(1, memo);
 	pstmt.executeUpdate();
 	pstmt.close();
 	con.close();
+	out.println("삭제 성공!");
 	response.sendRedirect("memo_list.jsp");
 %>
 

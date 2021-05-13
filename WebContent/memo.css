@@ -50,10 +50,9 @@ h1 {
   font-size: 1em;
 }
 
-.submit{
-  width:30px;
-  height:30px;
-  float:right;
+.button{
+  width:20px;
+  height:20px;
   background:#222;
   color:#fff;
   border:none;
@@ -61,6 +60,7 @@ h1 {
   margin-left: 30px;
   margin-top: -7px;
   margin-bottom: 20px;
+  border-radius: 5px;
 }
 
 hr { clear:both; display:none; }
