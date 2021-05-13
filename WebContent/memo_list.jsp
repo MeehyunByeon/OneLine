@@ -42,7 +42,6 @@
 		String wdate = rs.getString(3);
 		
 		out.println("<p>["+ wdate + "]" + memo +"<input class=\"button\" type=\"button\" value=\"X\" onClick=\"location.href='memo_delete.jsp?no="+no+"'\"><br>");
-		
 	}	
     %>
 	<hr>  
