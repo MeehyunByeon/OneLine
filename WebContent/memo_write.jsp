@@ -15,7 +15,7 @@
 
 	String url = "jdbc:mysql://localhost/world?characterEncoding=UTF-8&serverTimezone=UTC";
 	String user = "root";
-	String passwd = "bmh@392766";
+	String passwd = "1234";
 	Connection con = null;
 	String sql = "insert into oneline(memo) values( ? )";
 	PreparedStatement pstmt = null;
